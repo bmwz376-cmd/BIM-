@@ -85,6 +85,12 @@ plugins:
             ダウンロード: Downloads
   - tags
 
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/language-switcher.js
+
 extra:
   social:
     - icon: fontawesome/brands/github
