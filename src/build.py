@@ -16,8 +16,17 @@ from pathlib import Path
 # 同じディレクトリのモジュールをインポート
 from utils import ProjectPaths, logger, get_project_info
 from split_master import split_master_to_chapters
-from diagrams import generate_all_diagrams
+# from diagrams import generate_all_diagrams  # 旧版
+from diagrams_professional import ProfessionalDiagramGenerator  # 新版
 from pdf_build import build_all_pdfs
+
+
+def generate_all_diagrams():
+    """新しいプロフェッショナル図解を生成"""
+    paths = ProjectPaths()
+    generator = ProfessionalDiagramGenerator(paths.figs)
+    generator.generate_all()
+    return len(list(paths.figs.glob('*.png')))
 
 
 def print_banner():
