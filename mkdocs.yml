@@ -91,6 +91,9 @@ extra_css:
 extra_javascript:
   - javascripts/language-switcher.js
 
+# GitHub Pagesで静的サイトとして処理させる
+use_directory_urls: true
+
 extra:
   social:
     - icon: fontawesome/brands/github
