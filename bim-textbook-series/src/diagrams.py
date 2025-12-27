@@ -586,6 +586,341 @@ class DiagramGenerator:
         plt.close()
 
 
+    def generate_bep_flow(self):
+        """BIM実行計画（BEP）のフロー図"""
+        fig, ax = plt.subplots(figsize=(14, 10))
+        
+        bep_items = [
+            ('1. プロジェクト概要', 0.9, '#FFE6E6'),
+            ('2. BIM目標・ユースケース', 0.8, '#FFD9B3'),
+            ('3. 組織体制・責任分担', 0.7, '#FFFFCC'),
+            ('4. 情報要求事項', 0.6, '#D9FFD9'),
+            ('5. 成果物仕様', 0.5, '#CCE5FF'),
+            ('6. プロセス・ワークフロー', 0.4, '#E6D9FF'),
+            ('7. 技術インフラ', 0.3, '#FFD9E6'),
+            ('8. 品質管理', 0.2, '#E6FFE6')
+        ]
+        
+        for i, (item, y, color) in enumerate(bep_items):
+            # ボックス
+            rect = patches.FancyBboxPatch((0.15, y-0.04), 0.7, 0.07,
+                                         boxstyle="round,pad=0.01",
+                                         edgecolor='black', facecolor=color,
+                                         linewidth=2, alpha=0.8)
+            ax.add_patch(rect)
+            ax.text(0.5, y, item, ha='center', va='center',
+                   fontsize=12, fontweight='bold')
+            
+            # 矢印（最後以外）
+            if i < len(bep_items) - 1:
+                ax.arrow(0.5, y-0.05, 0, -0.04, head_width=0.03,
+                        head_length=0.02, fc='gray', ec='gray', linewidth=2)
+        
+        # サイドノート
+        ax.text(0.92, 0.9, '企画段階', fontsize=10, color='red',
+               bbox=dict(boxstyle='round', facecolor='pink', alpha=0.5))
+        ax.text(0.92, 0.5, '設計段階', fontsize=10, color='blue',
+               bbox=dict(boxstyle='round', facecolor='lightblue', alpha=0.5))
+        ax.text(0.92, 0.2, '施工段階', fontsize=10, color='green',
+               bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.5))
+        
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0.1, 1.0)
+        ax.set_title('BIM実行計画（BEP）の構成', fontsize=16, fontweight='bold', pad=20)
+        ax.axis('off')
+        
+        output_path = self.output_dir / "bep_flow.png"
+        plt.savefig(output_path, bbox_inches='tight', facecolor='white')
+        plt.close()
+    
+    def generate_4d_5d_bim(self):
+        """4D/5D BIMの概念図"""
+        fig, ax = plt.subplots(figsize=(12, 8))
+        
+        # 中央に3D BIM
+        center_circle = plt.Circle((0.5, 0.5), 0.12, color='orange', alpha=0.6,
+                                  linewidth=3, edgecolor='black')
+        ax.add_patch(center_circle)
+        ax.text(0.5, 0.5, '3D\nBIMモデル', ha='center', va='center',
+               fontsize=12, fontweight='bold')
+        
+        # 4つの軸を追加
+        dimensions = [
+            ('4D\n時間軸\n(工程)', 0.5, 0.82, '#FFD9D9', '施工シミュレーション'),
+            ('5D\nコスト軸\n(原価)', 0.82, 0.5, '#D9FFD9', '原価管理'),
+            ('6D\n維持管理', 0.5, 0.18, '#D9D9FF', 'FM・設備管理'),
+            ('7D\nサステナ\nビリティ', 0.18, 0.5, '#FFFFD9', '環境性能')
+        ]
+        
+        for label, x, y, color, desc in dimensions:
+            # 円
+            circle = plt.Circle((x, y), 0.08, color=color, alpha=0.7,
+                              linewidth=2, edgecolor='black')
+            ax.add_patch(circle)
+            ax.text(x, y, label, ha='center', va='center',
+                   fontsize=10, fontweight='bold')
+            
+            # 接続線
+            ax.plot([0.5, x], [0.5, y], 'b-', linewidth=2, alpha=0.5)
+            
+            # 説明
+            if y > 0.5:  # 上
+                ax.text(x, y+0.12, desc, ha='center', fontsize=8, style='italic')
+            elif y < 0.5:  # 下
+                ax.text(x, y-0.12, desc, ha='center', fontsize=8, style='italic')
+            elif x > 0.5:  # 右
+                ax.text(x+0.15, y, desc, ha='left', fontsize=8, style='italic')
+            else:  # 左
+                ax.text(x-0.15, y, desc, ha='right', fontsize=8, style='italic')
+        
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1)
+        ax.set_title('nD BIM - 多次元BIMの展開', fontsize=16, fontweight='bold', pad=20)
+        ax.text(0.5, 0.02, '3D空間モデルに時間・コスト・維持管理・環境の軸を追加',
+               ha='center', fontsize=10, style='italic', color='gray')
+        ax.axis('off')
+        
+        output_path = self.output_dir / "4d_5d_bim.png"
+        plt.savefig(output_path, bbox_inches='tight', facecolor='white')
+        plt.close()
+    
+    def generate_family_hierarchy_detail(self):
+        """ファミリ階層の詳細図"""
+        fig, ax = plt.subplots(figsize=(14, 10))
+        
+        # レベル1: プロジェクト
+        rect1 = patches.FancyBboxPatch((0.35, 0.85), 0.3, 0.08,
+                                      boxstyle="round,pad=0.01",
+                                      edgecolor='black', facecolor='lightblue',
+                                      linewidth=3)
+        ax.add_patch(rect1)
+        ax.text(0.5, 0.89, 'プロジェクト', ha='center', va='center',
+               fontsize=14, fontweight='bold')
+        
+        # レベル2: カテゴリ
+        categories = [
+            ('壁', 0.15, 0.7),
+            ('ドア', 0.35, 0.7),
+            ('窓', 0.55, 0.7),
+            ('家具', 0.75, 0.7)
+        ]
+        
+        for cat, x, y in categories:
+            rect = patches.FancyBboxPatch((x-0.08, y-0.03), 0.16, 0.06,
+                                         boxstyle="round,pad=0.005",
+                                         edgecolor='blue', facecolor='lightgreen',
+                                         linewidth=2)
+            ax.add_patch(rect)
+            ax.text(x, y, cat, ha='center', va='center',
+                   fontsize=11, fontweight='bold')
+            # 接続線
+            ax.plot([0.5, x], [0.85, y+0.03], 'k-', linewidth=1.5)
+        
+        # レベル3: ファミリタイプ
+        types = [
+            ('RC200', 0.08, 0.52),
+            ('LGS100', 0.22, 0.52),
+            ('片開き', 0.28, 0.52),
+            ('両開き', 0.42, 0.52),
+            ('引違い', 0.48, 0.52),
+            ('FIX', 0.62, 0.52),
+            ('デスク', 0.68, 0.52),
+            ('チェア', 0.82, 0.52)
+        ]
+        
+        for typ, x, y in types:
+            rect = patches.Rectangle((x-0.05, y-0.02), 0.1, 0.04,
+                                    edgecolor='green', facecolor='lightyellow',
+                                    linewidth=1.5)
+            ax.add_patch(rect)
+            ax.text(x, y, typ, ha='center', va='center', fontsize=9)
+            # 接続線（対応するカテゴリへ）
+            if x < 0.25:
+                ax.plot([0.15, x], [0.67, y+0.02], 'g-', linewidth=1)
+            elif x < 0.45:
+                ax.plot([0.35, x], [0.67, y+0.02], 'g-', linewidth=1)
+            elif x < 0.65:
+                ax.plot([0.55, x], [0.67, y+0.02], 'g-', linewidth=1)
+            else:
+                ax.plot([0.75, x], [0.67, y+0.02], 'g-', linewidth=1)
+        
+        # レベル4: インスタンス
+        ax.text(0.5, 0.35, '▼ インスタンス（個別の要素）', ha='center',
+               fontsize=12, fontweight='bold', color='purple')
+        
+        instances = [
+            ('壁1\nID:123456', 0.08, 0.22),
+            ('壁2\nID:123457', 0.22, 0.22),
+            ('ドア1\nID:234567', 0.35, 0.22),
+            ('窓1\nID:345678', 0.55, 0.22),
+            ('デスク1\nID:456789', 0.75, 0.22)
+        ]
+        
+        for inst, x, y in instances:
+            ellipse = patches.Ellipse((x, y), 0.12, 0.08,
+                                     edgecolor='purple', facecolor='lavender',
+                                     linewidth=1.5)
+            ax.add_patch(ellipse)
+            ax.text(x, y, inst, ha='center', va='center', fontsize=8)
+        
+        # 凡例
+        ax.text(0.1, 0.05, '■ 階層構造', fontsize=10, fontweight='bold')
+        ax.text(0.1, 0.02, '  プロジェクト > カテゴリ > ファミリタイプ > インスタンス',
+               fontsize=9)
+        
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1)
+        ax.set_title('Revitファミリの階層構造', fontsize=16, fontweight='bold', pad=20)
+        ax.axis('off')
+        
+        output_path = self.output_dir / "family_hierarchy_detail.png"
+        plt.savefig(output_path, bbox_inches='tight', facecolor='white')
+        plt.close()
+    
+    def generate_worksharing_concept(self):
+        """ワークシェアリングの概念図"""
+        fig, ax = plt.subplots(figsize=(14, 10))
+        
+        # 中央サーバー
+        server_rect = patches.FancyBboxPatch((0.38, 0.6), 0.24, 0.15,
+                                            boxstyle="round,pad=0.02",
+                                            edgecolor='black', facecolor='lightblue',
+                                            linewidth=3)
+        ax.add_patch(server_rect)
+        ax.text(0.5, 0.7, '中央ファイル\n(Central File)', ha='center', va='center',
+               fontsize=13, fontweight='bold')
+        ax.text(0.5, 0.63, 'サーバー上に配置', ha='center', fontsize=9, style='italic')
+        
+        # 設計者たち
+        users = [
+            ('意匠設計者A', 0.15, 0.35, 'lightgreen'),
+            ('構造設計者B', 0.5, 0.35, 'lightyellow'),
+            ('設備設計者C', 0.85, 0.35, 'lightcoral')
+        ]
+        
+        for name, x, y, color in users:
+            # ユーザーアイコン
+            circle = plt.Circle((x, y), 0.06, color=color, alpha=0.7,
+                              linewidth=2, edgecolor='black')
+            ax.add_patch(circle)
+            ax.text(x, y, name, ha='center', va='center', fontsize=9, fontweight='bold')
+            
+            # ローカルファイル
+            rect = patches.Rectangle((x-0.08, y-0.18), 0.16, 0.06,
+                                    edgecolor='gray', facecolor='white',
+                                    linewidth=1.5, linestyle='--')
+            ax.add_patch(rect)
+            ax.text(x, y-0.15, 'ローカル\nコピー', ha='center', va='center', fontsize=8)
+            
+            # 同期矢印（上向き：Synchronize with Central）
+            ax.annotate('', xy=(0.5, 0.6), xytext=(x, y+0.07),
+                       arrowprops=dict(arrowstyle='->', lw=2, color='blue'))
+            ax.text((x+0.5)/2 + 0.05, (y+0.6)/2, 'Sync', fontsize=8, color='blue')
+            
+            # ダウンロード矢印（下向き：Reload Latest）
+            ax.annotate('', xy=(x, y+0.07), xytext=(0.5, 0.6),
+                       arrowprops=dict(arrowstyle='->', lw=1.5, color='green', linestyle='--'))
+            ax.text((x+0.5)/2 - 0.05, (y+0.6)/2, 'Reload', fontsize=8, color='green')
+        
+        # ワークセット説明
+        ax.text(0.5, 0.9, '■ ワークシェアリングの仕組み', ha='center',
+               fontsize=14, fontweight='bold')
+        ax.text(0.5, 0.05, '1. 各設計者がローカルコピーを編集\n' +
+                          '2. 定期的に中央ファイルと同期（Sync）\n' +
+                          '3. 他者の変更を取得（Reload Latest）',
+               ha='center', fontsize=10, bbox=dict(boxstyle='round', facecolor='yellow', alpha=0.3))
+        
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1)
+        ax.set_title('ワークシェアリング - 複数人での同時作業', fontsize=16, fontweight='bold', pad=20)
+        ax.axis('off')
+        
+        output_path = self.output_dir / "worksharing_concept.png"
+        plt.savefig(output_path, bbox_inches='tight', facecolor='white')
+        plt.close()
+    
+    def generate_clash_detection(self):
+        """干渉チェックの概念図"""
+        fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(14, 10))
+        
+        # 干渉1: 配管と梁の干渉
+        ax1.set_title('❌干渉検出: 配管と梁', fontsize=12, fontweight='bold', color='red')
+        rect1 = patches.Rectangle((0.2, 0.5), 0.6, 0.15, facecolor='gray', alpha=0.5,
+                                 edgecolor='black', linewidth=2, label='梁')
+        ax1.add_patch(rect1)
+        circle1 = plt.Circle((0.5, 0.575), 0.08, facecolor='blue', alpha=0.6,
+                            edgecolor='blue', linewidth=2, label='配管')
+        ax1.add_patch(circle1)
+        # 干渉マーク
+        ax1.plot([0.5], [0.575], 'r*', markersize=30, label='干渉！')
+        ax1.text(0.5, 0.3, '問題: 配管が梁を貫通', ha='center', fontsize=10, color='red')
+        ax1.legend(loc='upper right')
+        ax1.set_xlim(0, 1)
+        ax1.set_ylim(0.2, 0.8)
+        ax1.axis('off')
+        
+        # 解決策1
+        ax2.set_title('✅解決策: 配管位置変更', fontsize=12, fontweight='bold', color='green')
+        rect2 = patches.Rectangle((0.2, 0.5), 0.6, 0.15, facecolor='gray', alpha=0.5,
+                                 edgecolor='black', linewidth=2, label='梁')
+        ax2.add_patch(rect2)
+        circle2 = plt.Circle((0.5, 0.35), 0.08, facecolor='blue', alpha=0.6,
+                            edgecolor='blue', linewidth=2, label='配管（移動後）')
+        ax2.add_patch(circle2)
+        ax2.text(0.5, 0.75, '配管を下方へ移動', ha='center', fontsize=10, color='green')
+        ax2.legend(loc='upper right')
+        ax2.set_xlim(0, 1)
+        ax2.set_ylim(0.2, 0.8)
+        ax2.axis('off')
+        
+        # 干渉2: ダクトと壁の干渉
+        ax3.set_title('❌干渉検出: ダクトと壁', fontsize=12, fontweight='bold', color='red')
+        # 壁
+        rect3 = patches.Rectangle((0.45, 0.2), 0.1, 0.6, facecolor='lightgray', alpha=0.7,
+                                 edgecolor='black', linewidth=2, label='壁')
+        ax3.add_patch(rect3)
+        # ダクト
+        rect4 = patches.Rectangle((0.3, 0.45), 0.4, 0.12, facecolor='yellow', alpha=0.6,
+                                 edgecolor='orange', linewidth=2, label='ダクト')
+        ax3.add_patch(rect4)
+        # 干渉エリア
+        rect5 = patches.Rectangle((0.45, 0.45), 0.1, 0.12, facecolor='red', alpha=0.5,
+                                 linewidth=0, label='干渉！')
+        ax3.add_patch(rect5)
+        ax3.text(0.5, 0.1, '問題: ダクトが壁を貫通', ha='center', fontsize=10, color='red')
+        ax3.legend(loc='upper right')
+        ax3.set_xlim(0.2, 0.8)
+        ax3.set_ylim(0, 0.9)
+        ax3.axis('off')
+        
+        # 解決策2
+        ax4.set_title('✅解決策: スリーブ設置', fontsize=12, fontweight='bold', color='green')
+        # 壁
+        rect6 = patches.Rectangle((0.45, 0.2), 0.1, 0.6, facecolor='lightgray', alpha=0.7,
+                                 edgecolor='black', linewidth=2, label='壁')
+        ax4.add_patch(rect6)
+        # スリーブ（開口）
+        rect7 = patches.Rectangle((0.45, 0.45), 0.1, 0.12, facecolor='white',
+                                 edgecolor='blue', linewidth=2, linestyle='--', label='スリーブ')
+        ax4.add_patch(rect7)
+        # ダクト
+        rect8 = patches.Rectangle((0.3, 0.45), 0.4, 0.12, facecolor='yellow', alpha=0.6,
+                                 edgecolor='orange', linewidth=2, label='ダクト')
+        ax4.add_patch(rect8)
+        ax4.text(0.5, 0.1, 'スリーブを設置して貫通部を確保', ha='center', fontsize=10, color='green')
+        ax4.legend(loc='upper right')
+        ax4.set_xlim(0.2, 0.8)
+        ax4.set_ylim(0, 0.9)
+        ax4.axis('off')
+        
+        plt.suptitle('干渉チェック（Clash Detection）の例', fontsize=16, fontweight='bold')
+        plt.tight_layout()
+        
+        output_path = self.output_dir / "clash_detection.png"
+        plt.savefig(output_path, bbox_inches='tight', facecolor='white')
+        plt.close()
+
+
 def generate_all_diagrams():
     """すべての図を生成"""
     paths = ProjectPaths()

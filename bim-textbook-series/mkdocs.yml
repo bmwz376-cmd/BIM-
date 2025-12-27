@@ -1,0 +1,96 @@
+site_name: BIM利用技術者試験 教科書シリーズ
+site_description: BIM利用技術者試験（2級・準1級）の完全対応教科書
+site_author: BIM教材開発チーム
+repo_url: https://github.com/bmwz376-cmd/BIM-
+edit_uri: ""
+
+theme:
+  name: material
+  language: ja
+  palette:
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切り替え
+    # Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードに切り替え
+  
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      title: 目次
+
+plugins:
+  - search:
+      lang: ja
+  - tags
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bmwz376-cmd/BIM-
+  
+  version:
+    provider: mike
+
+nav:
+  - ホーム: index.md
+  - クイックスタート: QUICK_START.md
+  
+  - VOL1 2級対応:
+    - vol1/index.md
+    - 第1章 BIMとは何か: vol1/chapter_01.md
+    - 第2章 建築生産とBIM: vol1/chapter_02.md
+    - 第3章 BIMモデルの中身: vol1/chapter_03.md
+    - 第4章 LODの考え方: vol1/chapter_04.md
+    - 第5章 IFCとOPEN BIM: vol1/chapter_05.md
+    - 第6章 BIM導入の効果と注意点: vol1/chapter_06.md
+    - 第7章 2級試験対策: vol1/chapter_07.md
+  
+  - VOL2 準1級対応:
+    - vol2/index.md
+    - 第1章 建築をBIMで表現するとは: vol2/chapter_01.md
+    - 第2章 BIMモデリングの考え方: vol2/chapter_02.md
+    - 第3章 試験で評価されるポイント: vol2/chapter_03.md
+    - 第4章 よくある失敗例: vol2/chapter_04.md
+    - 第5章 試験環境対策: vol2/chapter_05.md
+    - 第6章 準1級 模擬課題: vol2/chapter_06.md
+  
+  - 図表一覧: figures.md
+  - PDF/PPTX ダウンロード: downloads.md
+
+copyright: Copyright &copy; 2024 BIM教材開発チーム

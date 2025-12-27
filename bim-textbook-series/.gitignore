@@ -27,6 +27,9 @@ wheels/
 manuscript/
 assets/figs/
 dist/
+site/
+docs/assets/
+docs/dist/
 
 # IDE
 .vscode/
