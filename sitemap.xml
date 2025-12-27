@@ -1,3 +1,283 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>None./</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="None"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/"/>
+    </url>
+    <url>
+        <loc>NoneQUICK_START/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="NoneQUICK_START/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/QUICK_START/"/>
+    </url>
+    <url>
+        <loc>Nonedownloads/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonedownloads/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/downloads/"/>
+    </url>
+    <url>
+        <loc>Nonefigures/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonefigures/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/figures/"/>
+    </url>
+    <url>
+        <loc>Noneglossary/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneglossary/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/glossary/"/>
+    </url>
+    <url>
+        <loc>Nonevol1/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/"/>
+    </url>
+    <url>
+        <loc>Nonevol1/chapter_01/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_01/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_01/"/>
+    </url>
+    <url>
+        <loc>Nonevol1/chapter_02/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_02/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_02/"/>
+    </url>
+    <url>
+        <loc>Nonevol1/chapter_03/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_03/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_03/"/>
+    </url>
+    <url>
+        <loc>Nonevol1/chapter_04/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_04/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_04/"/>
+    </url>
+    <url>
+        <loc>Nonevol1/chapter_05/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_05/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_05/"/>
+    </url>
+    <url>
+        <loc>Nonevol1/chapter_06/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_06/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_06/"/>
+    </url>
+    <url>
+        <loc>Nonevol1/chapter_07/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_07/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_07/"/>
+    </url>
+    <url>
+        <loc>Nonevol2/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/"/>
+    </url>
+    <url>
+        <loc>Nonevol2/chapter_01/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_01/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_01/"/>
+    </url>
+    <url>
+        <loc>Nonevol2/chapter_02/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_02/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_02/"/>
+    </url>
+    <url>
+        <loc>Nonevol2/chapter_03/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_03/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_03/"/>
+    </url>
+    <url>
+        <loc>Nonevol2/chapter_04/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_04/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_04/"/>
+    </url>
+    <url>
+        <loc>Nonevol2/chapter_05/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_05/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_05/"/>
+    </url>
+    <url>
+        <loc>Nonevol2/chapter_06/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_06/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_06/"/>
+    </url>
+    <url>
+        <loc>Noneen/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="None"/>
+    </url>
+    <url>
+        <loc>Noneen/QUICK_START/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/QUICK_START/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="NoneQUICK_START/"/>
+    </url>
+    <url>
+        <loc>Noneen/downloads/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/downloads/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonedownloads/"/>
+    </url>
+    <url>
+        <loc>Noneen/figures/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/figures/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonefigures/"/>
+    </url>
+    <url>
+        <loc>Noneen/glossary/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/glossary/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneglossary/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol1/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol1/chapter_01/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_01/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_01/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol1/chapter_02/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_02/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_02/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol1/chapter_03/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_03/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_03/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol1/chapter_04/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_04/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_04/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol1/chapter_05/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_05/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_05/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol1/chapter_06/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_06/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_06/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol1/chapter_07/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol1/chapter_07/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol1/chapter_07/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol2/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol2/chapter_01/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_01/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_01/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol2/chapter_02/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_02/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_02/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol2/chapter_03/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_03/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_03/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol2/chapter_04/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_04/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_04/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol2/chapter_05/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_05/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_05/"/>
+    </url>
+    <url>
+        <loc>Noneen/vol2/chapter_06/</loc>
+        <lastmod>2025-12-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneen/vol2/chapter_06/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Nonevol2/chapter_06/"/>
+    </url>
 </urlset>
