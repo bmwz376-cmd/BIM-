@@ -1,6 +1,8 @@
-# 図表一覧
+# 📊 図表一覧
 
-本教材シリーズでは、Python（matplotlib）で自動生成された図表を10種類収録しています。
+本教材シリーズでは、Python（matplotlib）で自動生成された図表を**15種類**収録しています。
+
+全ての図表はPNG形式（150 DPI）で、試験対策や学習に最適化されています。
 
 ---
 
@@ -182,22 +184,82 @@ python src/diagrams.py
 - 正誤パターンを視覚的に記憶
 
 ### 講義・セミナー時
-- PPTXスライドに図表が埋め込み済み
-- 印刷して配布資料として活用
+- PDFを印刷して配布資料として活用
+- プロジェクターで投影して説明
 
 ---
 
-## 🔄 今後の追加予定
+## ✅ 追加済みの図表（11～15）
 
-以下の図表を追加予定です：
+### 11. BEP（BIM実行計画）フロー図
+**ファイル**: `assets/figs/bep_flow.png`
 
-- BEP（BIM実行計画）フロー図
-- 4D/5D BIM概念図
-- ワークシェアリング図
-- ファミリ階層図
-- 干渉チェック図
+BIM実行計画の8つの構成要素をフローチャートで図解。
+
+**関連章**: VOL1 第6章
+
+![BEP フロー図](assets/figs/bep_flow.png)
 
 ---
 
-**最終更新**: 2024年12月  
-**図表総数**: 10種類
+### 12. 4D/5D BIM概念図
+**ファイル**: `assets/figs/4d_5d_bim.png`
+
+多次元BIM（nD BIM）の概念：
+- 3D: 空間モデル
+- 4D: +時間軸（工程）
+- 5D: +コスト
+- 6D: +維持管理
+- 7D: +サステナビリティ
+
+**関連章**: VOL1 第2章
+
+![4D/5D BIM](assets/figs/4d_5d_bim.png)
+
+---
+
+### 13. ワークシェアリング概念図
+**ファイル**: `assets/figs/worksharing_concept.png`
+
+複数人での同時作業の仕組み：
+- 中央ファイル（Central File）
+- ローカルコピー
+- 同期（Synchronize with Central）
+
+**関連章**: VOL2 第2章
+
+![ワークシェアリング](assets/figs/worksharing_concept.png)
+
+---
+
+### 14. Revitファミリ階層詳細
+**ファイル**: `assets/figs/family_hierarchy_detail.png`
+
+Revitのファミリ構造を4階層で図解：
+1. プロジェクト
+2. カテゴリ
+3. ファミリタイプ
+4. インスタンス
+
+**関連章**: VOL1 第3章
+
+![ファミリ階層](assets/figs/family_hierarchy_detail.png)
+
+---
+
+### 15. 干渉チェック（Clash Detection）
+**ファイル**: `assets/figs/clash_detection.png`
+
+干渉検出の具体例：
+- 配管と梁の干渉
+- ダクトと壁の干渉
+- 解決策の提示
+
+**関連章**: VOL1 第6章、VOL2 第3章
+
+![干渉チェック](assets/figs/clash_detection.png)
+
+---
+
+**最終更新**: 2025年12月27日  
+**図表総数**: 15種類
