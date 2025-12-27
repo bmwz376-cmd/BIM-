@@ -1,0 +1,29 @@
+# BIM教科書シリーズ - 依存パッケージ
+
+# Core
+python>=3.8
+
+# Markdown処理
+markdown-it-py>=3.0.0
+mdit-py-plugins>=0.4.0
+
+# PDF生成
+reportlab>=4.0.0
+weasyprint>=60.0
+pypdf>=3.17.0
+
+# PPTX生成
+python-pptx>=0.6.23
+
+# 図生成
+matplotlib>=3.8.0
+pillow>=10.1.0
+numpy>=1.24.0
+
+# ユーティリティ
+pyyaml>=6.0.1
+jinja2>=3.1.2
+click>=8.1.7
+
+# 日本語フォント対応
+japanize-matplotlib>=1.1.3
