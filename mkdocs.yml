@@ -90,8 +90,9 @@ nav:
     - 第5章 試験環境対策: vol2/chapter_05.md
     - 第6章 準1級 模擬課題: vol2/chapter_06.md
   
-  - 図表一覧: figures.md
-  - 専門用語一覧: glossary.md
-  - PDF ダウンロード: downloads.md
+  - リソース:
+    - 📊 図表一覧: figures.md
+    - 📚 専門用語一覧: glossary.md
+    - 📥 ダウンロード: downloads.md
 
 copyright: Copyright &copy; 2025 BIM教材開発チーム
