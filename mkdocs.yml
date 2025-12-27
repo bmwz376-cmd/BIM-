@@ -56,7 +56,33 @@ markdown_extensions:
 
 plugins:
   - search:
-      lang: ja
+      lang: 
+        - ja
+        - en
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: ja
+          default: true
+          name: 日本語
+          build: true
+          site_name: "BIM利用技術者試験 教科書シリーズ"
+        - locale: en
+          name: English
+          build: true
+          site_name: "BIM Certification Textbook Series"
+          nav_translations:
+            ホーム: Home
+            クイックスタート: Quick Start
+            VOL1 2級対応: "VOL1: Level 2 Certification"
+            VOL2 準1級対応: "VOL2: Semi-Level 1 Certification"
+            リソース: Resources
+            図表一覧: Diagrams
+            専門用語一覧: Glossary
+            ダウンロード: Downloads
   - tags
 
 extra:
@@ -66,6 +92,14 @@ extra:
   
   version:
     provider: mike
+  
+  alternate:
+    - name: 日本語
+      link: /
+      lang: ja
+    - name: English
+      link: /en/
+      lang: en
 
 nav:
   - ホーム: index.md
