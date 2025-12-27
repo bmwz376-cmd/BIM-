@@ -371,6 +371,181 @@ class DiagramGenerator:
     
     # ========== VOL2: 準1級対応 ==========
     
+    def generate_level_mistake_detail(self):
+        """レベル設定の詳細な失敗例"""
+        fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(14, 10))
+        
+        # 失敗例1: レベル名の誤り
+        ax1.set_title('❌失敗例1: 日本語レベル名', fontsize=11, fontweight='bold', color='red')
+        ax1.text(0.5, 0.7, 'レベル1\nレベル2\nレベル3', ha='center', va='center',
+                fontsize=12, bbox=dict(boxstyle='round', facecolor='pink', alpha=0.7))
+        ax1.text(0.5, 0.3, '問題: 文字化けの可能性', ha='center', fontsize=9, color='red')
+        ax1.set_xlim(0, 1)
+        ax1.set_ylim(0, 1)
+        ax1.axis('off')
+        
+        # 正解例1
+        ax2.set_title('✅正解: 英数字レベル名', fontsize=11, fontweight='bold', color='green')
+        ax2.text(0.5, 0.7, '1FL\n2FL\n3FL', ha='center', va='center',
+                fontsize=12, bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.7))
+        ax2.text(0.5, 0.3, '推奨: 統一された命名', ha='center', fontsize=9, color='green')
+        ax2.set_xlim(0, 1)
+        ax2.set_ylim(0, 1)
+        ax2.axis('off')
+        
+        # 失敗例2: 階高不統一
+        ax3.set_title('❌失敗例2: 階高不統一', fontsize=11, fontweight='bold', color='red')
+        ax3.plot([0.2, 0.2], [0.1, 0.1], 'k-', linewidth=2)  # GL
+        ax3.plot([0.2, 0.2], [0.1, 0.4], 'r-', linewidth=2)  # 1FL (3m)
+        ax3.plot([0.2, 0.2], [0.4, 0.75], 'r-', linewidth=2)  # 2FL (3.5m)
+        ax3.plot([0.2, 0.2], [0.75, 1.0], 'r-', linewidth=2)  # 3FL (2.5m)
+        ax3.text(0.1, 0.1, 'GL', fontsize=9)
+        ax3.text(0.1, 0.4, '1FL', fontsize=9)
+        ax3.text(0.1, 0.75, '2FL', fontsize=9)
+        ax3.text(0.1, 1.0, 'RFL', fontsize=9)
+        ax3.text(0.3, 0.25, '3.0m', fontsize=8, color='red')
+        ax3.text(0.3, 0.575, '3.5m', fontsize=8, color='red')
+        ax3.text(0.3, 0.875, '2.5m', fontsize=8, color='red')
+        ax3.text(0.5, 0.05, '問題: 階高がバラバラ', ha='center', fontsize=9, color='red')
+        ax3.set_xlim(0, 1)
+        ax3.set_ylim(0, 1.1)
+        ax3.axis('off')
+        
+        # 正解例2
+        ax4.set_title('✅正解: 階高統一', fontsize=11, fontweight='bold', color='green')
+        ax4.plot([0.2, 0.2], [0.1, 0.1], 'k-', linewidth=2)  # GL
+        ax4.plot([0.2, 0.2], [0.1, 0.4], 'g-', linewidth=2)  # 1FL
+        ax4.plot([0.2, 0.2], [0.4, 0.7], 'g-', linewidth=2)  # 2FL
+        ax4.plot([0.2, 0.2], [0.7, 1.0], 'g-', linewidth=2)  # 3FL
+        ax4.text(0.1, 0.1, 'GL', fontsize=9)
+        ax4.text(0.1, 0.4, '1FL', fontsize=9)
+        ax4.text(0.1, 0.7, '2FL', fontsize=9)
+        ax4.text(0.1, 1.0, 'RFL', fontsize=9)
+        ax4.text(0.3, 0.25, '3.0m', fontsize=8, color='green')
+        ax4.text(0.3, 0.55, '3.0m', fontsize=8, color='green')
+        ax4.text(0.3, 0.85, '3.0m', fontsize=8, color='green')
+        ax4.text(0.5, 0.05, '推奨: 統一された階高', ha='center', fontsize=9, color='green')
+        ax4.set_xlim(0, 1)
+        ax4.set_ylim(0, 1.1)
+        ax4.axis('off')
+        
+        plt.tight_layout()
+        output_path = self.output_dir / "level_mistake_detail.png"
+        plt.savefig(output_path, bbox_inches='tight', facecolor='white')
+        plt.close()
+    
+    def generate_wall_mistake_patterns(self):
+        """壁の失敗パターン"""
+        fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(14, 10))
+        
+        # 失敗1: 高さ設定
+        ax1.set_title('❌失敗: 数値で高さ指定', fontsize=11, fontweight='bold', color='red')
+        rect = patches.Rectangle((0.3, 0.3), 0.4, 0.35, linewidth=2, edgecolor='red', 
+                                 facecolor='pink', alpha=0.5)
+        ax1.add_patch(rect)
+        ax1.text(0.5, 0.15, '高さ: 2700mm（固定）', ha='center', fontsize=9, color='red')
+        ax1.text(0.5, 0.05, '→階高変更時に追随しない', ha='center', fontsize=8, style='italic')
+        ax1.set_xlim(0, 1)
+        ax1.set_ylim(0, 0.8)
+        ax1.axis('off')
+        
+        # 正解1
+        ax2.set_title('✅正解: レベルで高さ指定', fontsize=11, fontweight='bold', color='green')
+        rect = patches.Rectangle((0.3, 0.3), 0.4, 0.4, linewidth=2, edgecolor='green',
+                                 facecolor='lightgreen', alpha=0.5)
+        ax2.add_patch(rect)
+        ax2.plot([0.15, 0.85], [0.7, 0.7], 'b--', linewidth=1.5)
+        ax2.text(0.9, 0.7, '2FL', fontsize=9, color='blue')
+        ax2.text(0.5, 0.15, '上端: 2FLレベル', ha='center', fontsize=9, color='green')
+        ax2.text(0.5, 0.05, '→自動追随', ha='center', fontsize=8, style='italic')
+        ax2.set_xlim(0, 1)
+        ax2.set_ylim(0, 0.8)
+        ax2.axis('off')
+        
+        # 失敗2: 位置ずれ
+        ax3.set_title('❌失敗: グリッドからズレ', fontsize=11, fontweight='bold', color='red')
+        ax3.plot([0.5, 0.5], [0.2, 0.7], 'b--', linewidth=1.5, label='Grid')
+        ax3.plot([0.52, 0.52], [0.2, 0.7], 'r-', linewidth=3, label='Wall')
+        ax3.text(0.5, 0.1, 'Grid', ha='center', fontsize=9, color='blue')
+        ax3.text(0.52, 0.05, '+5mm', ha='center', fontsize=9, color='red')
+        ax3.legend(loc='upper right')
+        ax3.set_xlim(0.3, 0.7)
+        ax3.set_ylim(0, 0.8)
+        ax3.axis('off')
+        
+        # 正解2
+        ax4.set_title('✅正解: グリッドに整列', fontsize=11, fontweight='bold', color='green')
+        ax4.plot([0.5, 0.5], [0.2, 0.7], 'b--', linewidth=1.5, label='Grid')
+        ax4.plot([0.5, 0.5], [0.2, 0.7], 'g-', linewidth=3, label='Wall')
+        ax4.text(0.5, 0.1, 'Grid=Wall', ha='center', fontsize=9, color='green')
+        ax4.text(0.5, 0.05, '0mm', ha='center', fontsize=9, color='green')
+        ax4.legend(loc='upper right')
+        ax4.set_xlim(0.3, 0.7)
+        ax4.set_ylim(0, 0.8)
+        ax4.axis('off')
+        
+        plt.tight_layout()
+        output_path = self.output_dir / "wall_mistake_patterns.png"
+        plt.savefig(output_path, bbox_inches='tight', facecolor='white')
+        plt.close()
+    
+    def generate_floor_mistake_examples(self):
+        """床の失敗例"""
+        fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(14, 10))
+        
+        # 失敗1: レベルミス
+        ax1.set_title('❌失敗: 間違ったレベル', fontsize=11, fontweight='bold', color='red')
+        ax1.plot([0.2, 0.8], [0.3, 0.3], 'k-', linewidth=2, label='1FL')
+        ax1.plot([0.2, 0.8], [0.6, 0.6], 'b--', linewidth=2, label='2FL')
+        rect = patches.Rectangle((0.25, 0.28), 0.5, 0.04, facecolor='red', alpha=0.5)
+        ax1.add_patch(rect)
+        ax1.text(0.5, 0.15, '2階の床を1FLに作成', ha='center', fontsize=9, color='red')
+        ax1.legend(loc='upper right')
+        ax1.set_xlim(0, 1)
+        ax1.set_ylim(0.1, 0.7)
+        ax1.axis('off')
+        
+        # 正解1
+        ax2.set_title('✅正解: 正しいレベル', fontsize=11, fontweight='bold', color='green')
+        ax2.plot([0.2, 0.8], [0.3, 0.3], 'k-', linewidth=2, label='1FL')
+        ax2.plot([0.2, 0.8], [0.6, 0.6], 'b-', linewidth=2, label='2FL')
+        rect = patches.Rectangle((0.25, 0.58), 0.5, 0.04, facecolor='green', alpha=0.5)
+        ax2.add_patch(rect)
+        ax2.text(0.5, 0.15, '2階の床を2FLに作成', ha='center', fontsize=9, color='green')
+        ax2.legend(loc='upper right')
+        ax2.set_xlim(0, 1)
+        ax2.set_ylim(0.1, 0.7)
+        ax2.axis('off')
+        
+        # 失敗2: 境界線の隙間
+        ax3.set_title('❌失敗: 境界線が閉じていない', fontsize=11, fontweight='bold', color='red')
+        # 不完全な四角形（隙間あり）
+        ax3.plot([0.3, 0.7, 0.7, 0.3], [0.3, 0.3, 0.7, 0.7], 'r-', linewidth=2)
+        ax3.plot([0.699, 0.699], [0.3, 0.305], 'r-', linewidth=2)  # 隙間を強調
+        circle = plt.Circle((0.7, 0.3), 0.02, color='red', fill=True)
+        ax3.add_patch(circle)
+        ax3.text(0.75, 0.25, '隙間!', fontsize=9, color='red', fontweight='bold')
+        ax3.text(0.5, 0.15, 'エラー: 境界線が閉じていません', ha='center', fontsize=9, color='red')
+        ax3.set_xlim(0.2, 0.8)
+        ax3.set_ylim(0.1, 0.8)
+        ax3.axis('off')
+        
+        # 正解2
+        ax4.set_title('✅正解: 境界線が閉じている', fontsize=11, fontweight='bold', color='green')
+        # 完全な四角形
+        ax4.plot([0.3, 0.7, 0.7, 0.3, 0.3], [0.3, 0.3, 0.7, 0.7, 0.3], 'g-', linewidth=2)
+        rect = patches.Rectangle((0.3, 0.3), 0.4, 0.4, facecolor='lightgreen', alpha=0.3)
+        ax4.add_patch(rect)
+        ax4.text(0.5, 0.15, '床が正常に作成される', ha='center', fontsize=9, color='green')
+        ax4.set_xlim(0.2, 0.8)
+        ax4.set_ylim(0.1, 0.8)
+        ax4.axis('off')
+        
+        plt.tight_layout()
+        output_path = self.output_dir / "floor_mistake_examples.png"
+        plt.savefig(output_path, bbox_inches='tight', facecolor='white')
+        plt.close()
+    
     def generate_ng_ok_level_mistake(self):
         """レベル設定の誤り例と正解例"""
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
