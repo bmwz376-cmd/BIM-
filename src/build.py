@@ -18,7 +18,6 @@ from utils import ProjectPaths, logger, get_project_info
 from split_master import split_master_to_chapters
 from diagrams import generate_all_diagrams
 from pdf_build import build_all_pdfs
-from pptx_build import build_all_pptx
 
 
 def print_banner():
@@ -50,31 +49,24 @@ def main():
     try:
         # 1. 原稿分割
         logger.info("=" * 70)
-        logger.info("STEP 1/4: MASTER.md を章ファイルに分割")
+        logger.info("STEP 1/3: MASTER.md を章ファイルに分割")
         logger.info("=" * 70)
         vol1_chapters, vol2_chapters = split_master_to_chapters()
         logger.info(f"✅ 分割完了: VOL1={len(vol1_chapters)}章, VOL2={len(vol2_chapters)}章\n")
         
         # 2. 図生成
         logger.info("=" * 70)
-        logger.info("STEP 2/4: 図表を自動生成")
+        logger.info("STEP 2/3: 図表を自動生成")
         logger.info("=" * 70)
         fig_count = generate_all_diagrams()
         logger.info(f"✅ 図生成完了: {fig_count}個\n")
         
         # 3. PDF生成
         logger.info("=" * 70)
-        logger.info("STEP 3/4: PDF教科書を生成")
+        logger.info("STEP 3/3: PDF教科書を生成")
         logger.info("=" * 70)
         build_all_pdfs()
         logger.info("✅ PDF生成完了\n")
-        
-        # 4. PPTX生成
-        logger.info("=" * 70)
-        logger.info("STEP 4/4: PPTXスライドを生成")
-        logger.info("=" * 70)
-        build_all_pptx()
-        logger.info("✅ PPTX生成完了\n")
         
         # 完了メッセージ
         elapsed_time = time.time() - start_time
@@ -98,11 +90,9 @@ def main():
         print("🖼️  図表 (PNG):")
         print(f"   • {paths.figs}/ - 自動生成された図 ({fig_count}個)")
         print()
-        print("📚 成果物:")
-        print(f"   • {paths.dist}/vol1_2kyu.pdf - 2級教科書 (PDF)")
-        print(f"   • {paths.dist}/vol2_jun1kyu.pdf - 準1級教科書 (PDF)")
-        print(f"   • {paths.dist}/vol1_2kyu.pptx - 2級スライド (PPTX)")
-        print(f"   • {paths.dist}/vol2_jun1kyu.pptx - 準1級スライド (PPTX)")
+        print("📚 成果物 (PDF):")
+        print(f"   • {paths.dist}/vol1_2kyu.pdf - 2級教科書 (PDF, 約30ページ)")
+        print(f"   • {paths.dist}/vol2_jun1kyu.pdf - 準1級教科書 (PDF, 約35ページ)")
         print()
         print(f"⏱️  処理時間: {elapsed_time:.2f}秒")
         print()
